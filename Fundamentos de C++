@@ -1,0 +1,98 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << ".........................................................................\n";
+    
+    int num1, num2;
+    cout << "-diga o primeiro numero: ";
+    cin >> num1;
+    cout << "-diga o segundo numero: ";
+    cin >> num2;
+
+    int soma = num1 + num2;
+    int sub = num1 - num2;
+    int multi = num1 * num2;
+    float div = (float)num1 / num2;
+
+    cout << "soma: " << soma << endl;
+    cout << "subtração: " << sub << endl;
+    cout << "multiplicação: " << multi << endl;
+    cout << "divisão: " << div << endl;
+
+    cout << ".........................................................................\n";
+
+    int condicao = 0;
+    int numero = 0;
+    int totalpares = 0;      // total de números pares
+    int totalimpares = 0;    // total de números ímpares
+    int opcao = 0;
+    float valortotal = 0.0;
+
+    while (condicao == 0) {
+        cout << "digite um numero: \n";
+        cin >> numero;
+        cout << "voce digitou: " << numero << endl;
+
+        if ((numero % 2) == 0) {
+            cout << "-Par-" << endl;
+            totalpares++;
+        } else {
+            cout << "-Impar-" << endl;
+            totalimpares++;
+        }
+
+        cout << "deseja continuar? :\n";
+        cout << "-digite 0 para Sim - ou 1 para Não-\n";
+        cin >> condicao;
+
+        cout << "foram digitados:\n";
+        cout << "pares = " << totalpares << endl;
+        cout << "impares = " << totalimpares << endl;
+    }
+
+    cout << ".........................................................................\n";
+
+    while (condicao == 1) {
+        cout << "1 Salgado 10,00\n";
+        cout << "2 Batata Frita 20,00\n";
+        cout << "3 Hamburguer 30,00\n";
+        cout << "4 Almoço 40,00\n";
+        cout << "digite uma das opções acima:\n";
+        cin >> opcao;
+
+        switch (opcao) {
+            case 1: valortotal += 10.00; break;
+            case 2: valortotal += 20.00; break;
+            case 3: valortotal += 30.00; break;
+            case 4: valortotal += 40.00; break;
+            default: cout << "opção inválida\n"; break;
+        }
+
+        cout << "deseja mais algum item? digite: - 1 para sim - ou qualquer número para não -\n";
+        cin >> condicao;
+        cout << "o total foi de R$" << valortotal << endl;
+    }
+
+    cout << ".........................................................................\n";
+
+    int a, b, c;
+    cout << "lado a: ";
+    cin >> a;
+    cout << "lado b: ";
+    cin >> b;
+    cout << "lado c: ";
+    cin >> c;
+
+    if ((a == b) && (b == c)) {
+        cout << "Equilátero\n";
+    } else if ((a != b) && (a != c) && (b != c)) {
+        cout << "Escaleno\n";
+    } else {
+        cout << "Isósceles\n";
+    }
+
+    cout << ".........................................................................\n";
+
+    return 0;
+}
