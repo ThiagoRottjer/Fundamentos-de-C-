@@ -3,62 +3,66 @@ using namespace std;
 
 int main() {
     cout << ".........................................................................\n";
-    
+
+    // Parte 1: Operações matemáticas básicas
     int num1, num2;
-    cout << "-diga o primeiro numero: ";
+    cout << "- Diga o primeiro numero: ";
     cin >> num1;
-    cout << "-diga o segundo numero: ";
+    cout << "- Diga o segundo numero: ";
     cin >> num2;
 
-    int soma = num1 + num2;
-    int sub = num1 - num2;
+    int soma  = num1 + num2;
+    int sub   = num1 - num2;
     int multi = num1 * num2;
     float div = (float)num1 / num2;
 
-    cout << "soma: " << soma << endl;
-    cout << "subtração: " << sub << endl;
-    cout << "multiplicação: " << multi << endl;
-    cout << "divisão: " << div << endl;
+    cout << "Soma:          " << soma  << endl;
+    cout << "Subtração:     " << sub   << endl;
+    cout << "Multiplicação: " << multi << endl;
+    cout << "Divisão:       " << div   << endl;
 
     cout << ".........................................................................\n";
 
-    int condicao = 0;
-    int numero = 0;
-    int totalpares = 0;      // total de números pares
-    int totalimpares = 0;    // total de números ímpares
-    int opcao = 0;
-    float valortotal = 0.0;
+    // Parte 2: Contador de pares e ímpares
+    int condicao     = 0;
+    int numero       = 0;
+    int totalpares   = 0;
+    int totalimpares = 0;
 
     while (condicao == 0) {
-        cout << "digite um numero: \n";
+        cout << "Digite um número: ";
         cin >> numero;
-        cout << "voce digitou: " << numero << endl;
+        cout << "Você digitou: " << numero << endl;
 
-        if ((numero % 2) == 0) {
-            cout << "-Par-" << endl;
+        if (numero % 2 == 0) {
+            cout << "- Par -" << endl;
             totalpares++;
         } else {
-            cout << "-Impar-" << endl;
+            cout << "- Ímpar -" << endl;
             totalimpares++;
         }
 
-        cout << "deseja continuar? :\n";
-        cout << "-digite 0 para Sim - ou 1 para Não-\n";
+        cout << "Deseja continuar? Digite 0 para Sim ou 1 para Não: ";
         cin >> condicao;
-
-        cout << "foram digitados:\n";
-        cout << "pares = " << totalpares << endl;
-        cout << "impares = " << totalimpares << endl;
     }
+
+    cout << "Foram digitados:\n";
+    cout << "Pares   = " << totalpares   << endl;
+    cout << "Ímpares = " << totalimpares << endl;
 
     cout << ".........................................................................\n";
 
+    // Parte 3: Menu de produtos
+    float valortotal = 0.0;
+    int opcao = 0;
+    condicao = 1;
+
     while (condicao == 1) {
-        cout << "1 Salgado 10,00\n";
-        cout << "2 Batata Frita 20,00\n";
-        cout << "3 Hamburguer 30,00\n";
-        cout << "4 Almoço 40,00\n";
-        cout << "digite uma das opções acima:\n";
+        cout << "1 - Salgado       R$10,00\n";
+        cout << "2 - Batata Frita  R$20,00\n";
+        cout << "3 - Hamburguer    R$30,00\n";
+        cout << "4 - Almoço        R$40,00\n";
+        cout << "Digite uma das opções acima: ";
         cin >> opcao;
 
         switch (opcao) {
@@ -66,22 +70,25 @@ int main() {
             case 2: valortotal += 20.00; break;
             case 3: valortotal += 30.00; break;
             case 4: valortotal += 40.00; break;
-            default: cout << "opção inválida\n"; break;
+            default: cout << "Opção inválida\n"; break;
         }
 
-        cout << "deseja mais algum item? digite: - 1 para sim - ou qualquer número para não -\n";
+        cout << "Deseja mais algum item? Digite 1 para Sim ou qualquer outro número para Não: ";
         cin >> condicao;
-        cout << "o total foi de R$" << valortotal << endl;
     }
+
+    cout << "O total foi de R$" << valortotal << endl;
 
     cout << ".........................................................................\n";
 
+    // Parte 4: Tipo de triângulo
     int a, b, c;
-    cout << "lado a: ";
+    cout << "Digite os lados do triângulo:\n";
+    cout << "Lado a: ";
     cin >> a;
-    cout << "lado b: ";
+    cout << "Lado b: ";
     cin >> b;
-    cout << "lado c: ";
+    cout << "Lado c: ";
     cin >> c;
 
     if ((a == b) && (b == c)) {
@@ -94,6 +101,92 @@ int main() {
 
     cout << ".........................................................................\n";
 
+    // Parte 5: Avaliação de candidato
+    int titulacao, tempoExperiencia, idade, pontuacao = 0;
+
+    cout << "Escolha uma das opções para titulação:\n";
+    cout << "1 - 2° Grau\n";
+    cout << "2 - Graduação\n";
+    cout << "3 - Pós-Graduação\n";
+    cin >> titulacao;
+
+    cout << "\nInforme seu tempo de experiência (em anos): ";
+    cin >> tempoExperiencia;
+
+    cout << "\nInforme sua idade: ";
+    cin >> idade;
+
+    if (idade < 40) {
+        pontuacao += 100;
+    } else {
+        pontuacao -= 50;
+    }
+
+    switch (titulacao) {
+        case 1:
+            pontuacao += 50;
+            break;
+        case 2:
+            if (tempoExperiencia < 4)
+                pontuacao += 70;
+            else
+                pontuacao += 90;
+            break;
+        case 3:
+            if (tempoExperiencia < 4)
+                pontuacao += 100;
+            else if (tempoExperiencia < 6)
+                pontuacao += 120;
+            else
+                pontuacao += 150;
+            break;
+        default:
+            cout << "Titulação inválida!\n";
+            break;
+    }
+
+    cout << "\nPONTUAÇÃO FINAL = " << pontuacao << endl;
+
+    cout << ".........................................................................\n";
+
+    const int TAM = 4;
+ char l[TAM];
+
+  for (int i = 0; i < TAM; i++)
+    
+{ 
+      cout << "informe a" << (i+1) << "a letra:";
+      cin >> l[i];  
+}
+
+ cout << "letras invertidas:"; 
+for (int i = (TAM-1); i >= 0; i--)
+  cout << l [i] << " ";
+
+cout << ".........................................................................\n";
+
+    // Criando a matriz 3x3 de floats
+    float matriz[3][3];
+
+    // Preenchendo a matriz com alguns valores (apenas para exemplo)
+    float valor = 1.0;
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            matriz[i][j] = valor;
+            valor += 1.0;
+        }
+    }
+
+    // Imprimindo o endereço de cada posicao
+    cout << "Endereços de cada posicao na matriz 3x3:" << endl;
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+          cout << "Matriz[" << i << "][" << j << "]: " << &matriz[i][j] <<endl;
+        }
+    }
+
+cout << ".........................................................................\n";
+
+//compilador: https://www.onlinegdb.com
     return 0;
 }
-//compilador: https://www.onlinegdb.com 
